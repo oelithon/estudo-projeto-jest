@@ -11,17 +11,18 @@ ATENÇÃO!!! Edite apenas este arquivo. Não altere os arquivos da pasta 'src'.
 */
 
 describe('1 - O retorno do telefonema', () => {
+  // Usei como referência o conteúdo sobre callbacks, bloco 10.2 do course Trybe:
   test('atende', (done) => {
-    // assert.fail();
-    // Insira seu teste assíncrono aqui
+    // Como a função retorna um resultado assíncrono, fiz a chamada do done() para que o tesre aguarde o resultado.
     answerPhone(true).then((response) => {
       expect(response).toEqual('Oi!');
       done();
     });
   });
+
+  //  Usei como referência o conteúdo sobre async/await bloco 10.2 do course Trybe:
   test('ocupado', async () => {
-    // assert.fail();
-    // Insira seu teste assíncrono aqui
+    // Nesse caso precisei verificar quando ocorre o reject da promise.
     try {
       await answerPhone(false);
     } catch (error) {
