@@ -56,6 +56,8 @@ describe('3 - Verifica as funções e os mocks', () => {
     expect(mockFunctions.divide(1331, 11)).toEqual(121);
   });
   test('testa função power', () => {
+    // Utilizei operador exponencial por ser mais prático nessa aplicação:
+    // https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Operators/Exponentiation
     mockFunctions.power.mockImplementation((a, b) => a ** b);
 
     expect(mockFunctions.power(10, 2)).toEqual(100);
