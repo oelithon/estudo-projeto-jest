@@ -21,6 +21,8 @@ ATENÇÃO!!! Edite apenas este arquivo. Não altere os arquivos da pasta 'src'.
 
 describe('4 - Quem sobreviveu?', () => {
   // Adicione seu código aqui
+  // O beforeEach é executado antes de cada teste, isso evita que tenha que repetir a chamada da função randomAttack() manualmente antes de cada test.
+  beforeEach(adventure.randomAttack);
 
   test('depois da primeira aventura', () => {
     expect(adventure.specialists.length).toBe(5);
