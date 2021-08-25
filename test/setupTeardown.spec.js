@@ -40,3 +40,5 @@ describe('4 - Quem sobreviveu?', () => {
     expect(adventure.specialists.length).toBe(1);
   });
 });
+
+// Após resolver o requisito, ainda fiquei com dúvidas sobre a funcionalidade do beforeEach, em call recabi explicações da colega de turma Bel Albuquerque e consegui entender como funciona.
