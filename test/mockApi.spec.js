@@ -21,10 +21,29 @@ Dica: Utilizem os métodos jest.fn() ou jest.spyOn().
 
 ATENÇÃO!!! Edite apenas este arquivo. Não altere os arquivos da pasta 'src'.
 */
+
 jest.mock('../src/mockApi');
 
 describe('2 - Verifica o usuário', () => {
   // Crie sua mock da função fetchURL() aqui
+  // Criei um objeto contendo as informações de usuário que meus testes esperam da chamada API:
+  const dataUser = {
+    gender: 'male',
+    name: { first: 'Antônio', last: 'Britto' },
+    location: {
+      country: 'Brazil',
+    },
+    email: 'tunico@bol.com.br',
+    login: {
+      username: 'tunicao123',
+      password: '1234567890',
+    },
+  };
+
+  // Aqui chamei a função mockada com o metodo .mockReturnValueOnce(value), onde o parametro desse metodo é o meu objeto criado anteriormente.
+  // https://jestjs.io/pt-BR/docs/mock-function-api#mockfnmockreturnvaluevalue
+  // Recebi orientação do colega de turma Anastácio Neto, ele fez code review e me explicou que só faltava fazer a chamada da função.
+  api.fetchURL.mockResolvedValue(dataUser);
 
   test('verifica se o usuário é o tunico', async () => (
     api.fetchURL().then((user) => {
